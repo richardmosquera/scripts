@@ -1,11 +1,17 @@
-#!/bin/bash -x
+#!/bin/bash
 # Installs latest versions of packer and terraform and various other tools and config options
 
-# packages
-yum -y install epel-release
-yum -y install vim jq unzip
 
-# vim
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
+
+# packages
+apt-get --yes install vim jq unzip
+pip install aws
+
+# app config  
 cat << EOF > ~/.vimrc
 colo desert
 syntax on
@@ -34,5 +40,5 @@ fi
   
 echo "Installed: `${HOME}/bin/packer version`"
 
-source ~/.bashrc
+echo "Please run: source ~/.bashrc"
 
