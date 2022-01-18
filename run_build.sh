@@ -2,6 +2,6 @@
 
 echo "this is a build step"
 
-ps ax 
+echo "ENV.COUNT: " $COUNT
 
 docker ps 
