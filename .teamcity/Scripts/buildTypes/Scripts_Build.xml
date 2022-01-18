@@ -3,7 +3,9 @@
   <name>This is Build Project</name>
   <description />
   <settings>
-    <parameters />
+    <parameters>
+      <param name="env.COUNT" value="1" />
+    </parameters>
     <build-runners>
       <runner id="RUNNER_1" name="" type="simpleRunner">
         <parameters>
